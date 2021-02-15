@@ -1,3 +1,4 @@
+<?php
 # 課題の回答は このファイル をご利用下さい。
 # 回答の出力を確認される際は，「php task.php」をターミナルから実行して下さい。
 
@@ -93,7 +94,7 @@ $array = ["1", "2", "3", "4", "5"];
 
   # 以下に回答を記載
 
-$array = array_map(intval,$array);
+$array = array_map("intval",$array);
 print_r($array);
 
 echo PHP_EOL;
@@ -103,8 +104,8 @@ $programming_languages = ["php","ruby","python","javascript"];
 
   # 以下に回答を記載
 
-$programming_languages = array_map(ucfirst,$programming_languages);
-$upper_case_programming_languages = array_map(strtoupper,$programming_languages);
+$programming_languages = array_map("ucfirst",$programming_languages);
+$upper_case_programming_languages = array_map("strtoupper",$programming_languages);
 
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -118,12 +119,31 @@ $names = ["田中", "佐藤", "佐々木", "高橋"];
 
   # 以下に回答を記載
 
+  $members_number = 1;
+
+  foreach($names as $name){
+  
+     $members_name[] = "会員No.".$members_number." ".$name;
+     $members_number++;
+     
+  }
+  
+  print_r($members_name);
+
 echo PHP_EOL;
 
 print("#####q10#####".PHP_EOL);
 $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼"];
 
   # 以下に回答を記載
+
+  foreach($foods as $food){
+    if(preg_match("/うに/",$food)){
+       echo "好物です"."<br>";
+    }else{
+       echo "まぁまぁ好きです"."<br>";
+    }
+ }
 
 echo PHP_EOL;
 
@@ -132,12 +152,18 @@ $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"],
 
   # 以下に回答を記載
 
+
+
 echo PHP_EOL;
 
 print("#####q12#####".PHP_EOL);
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
   # 以下に回答を記載
+
+  print_r($data["user"]["name"]);
+
+  echo "<br>";
 
 echo PHP_EOL;
 
@@ -147,12 +173,21 @@ $update_data = [ "age" => 32, "address" => "沖縄" ];
 
   # 以下に回答を記載
 
+  $user_data = array_merge($user_data,$update_data);
+  print_r($user_data);
+
 echo PHP_EOL;
 
 print("#####q14#####".PHP_EOL);
 $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
 
   # 以下に回答を記載
+
+  foreach($data as $key => $value){
+    $key_data[] = $value;
+  }
+ 
+  print_r($key_data);
 
 echo PHP_EOL;
 
@@ -161,6 +196,18 @@ $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admi
 $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
   # 以下に回答を記載
+
+ if(array_key_exists("age",$data1)){
+    echo "OK"."<br>";
+ }else{
+    echo "NG"."<br>";
+ }
+ 
+ if(array_key_exists("age",$data2)){
+    echo "OK"."<br>";
+ }else{
+    echo "NG"."<br>";
+ }
 
 echo PHP_EOL;
 
@@ -173,6 +220,12 @@ $users = [
 ];
 
   # 以下に回答を記載
+
+ foreach($users as $user_data){
+    echo "私の名前は".$user_data["name"]."です。";
+    echo "年齢は".$user_data["age"]."です。";
+    echo "<br>";
+ }
 
 echo PHP_EOL;
 
@@ -251,3 +304,4 @@ foreach($humans as $human){
 }
 
 echo PHP_EOL;
+?>
