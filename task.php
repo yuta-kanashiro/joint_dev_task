@@ -257,6 +257,7 @@ class User
 {
 
   # コードを追加
+
   private $name;
    private $age;
    private $gender;
@@ -287,6 +288,7 @@ echo PHP_EOL;
 print("#####q18#####".PHP_EOL);
 
   # コードを追加
+  
   class Man {
 
     private $name;
