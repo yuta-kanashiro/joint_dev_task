@@ -257,6 +257,21 @@ class User
 {
 
   # コードを追加
+  private $name;
+   private $age;
+   private $gender;
+
+   public function __construct($name, $age, $gender){
+      $this->name = $name;
+      $this->age = $age;
+      $this->gender = $gender;
+   }
+
+   public function info(){
+      echo "名前：".$this->name."<br>";
+      echo "年齢：".$this->age."<br>";
+      echo "性別：".$this->gender."<br>";
+   }
 
 }
 
@@ -272,6 +287,25 @@ echo PHP_EOL;
 print("#####q18#####".PHP_EOL);
 
   # コードを追加
+  class Man {
+
+    private $name;
+    private $age;
+ 
+    public function __construct($name, $age){
+       $this->name = $name;
+       $this->age = $age;
+    }
+ 
+    public function introduce(){
+       if($this->age >= 20){
+          echo "こんにちは、".$this->name."と申します。宜しくお願いいたします。"."<br>";
+       }else{
+          echo "はいさいまいど〜、".$this->name."です！！！"."<br>";
+       }
+    }
+ }
+
 
 $man1 = new Man("あじー",32);
 $man2 = new Man("ゆたぼん",10);
